@@ -1,0 +1,116 @@
+public class Main {
+
+
+	public static void main(String[] args) {
+		Account ac1 =new Account(999);
+		//Account.balance=100;
+		ac1.pintAccount();
+		ac1.setBalance(500);
+		ac1.cridit( 1000);
+		ac1.debit(100);
+		ac1.debit(500);
+		System.out.println(ac1.getBalance());
+
+
+		Account ac2 =new Account(999);
+		System.out.println(ac2.getBalance());
+		System.out.println((ac1.getNroAccount()));
+		/*
+		int a=5;
+		int [] arr = new int [10];
+		Auto a1 =new Auto();
+		System.out.println(a1);
+
+		a1.cambiarColor("azul");
+		System.out.println(a1);
+		a1.setMarca("ford");
+		System.out.println(a1.getMarca());
+		a1.contruirFordBlancoCuatropuertas();
+		System.out.println(a1.getMarca());
+		System.out.println(a1.getCantidadPuertas());
+		System.out.println(a1.getColor());
+	*/
+	}
+}
+-----------------------------------------------
+public class Auto {
+
+    private String color;
+    private String nombre;
+    private String marca;
+    private String modelo;
+    private int cantidadPuertas;
+    void cambiarColor (String c){
+        color = c;
+    }
+public void setMarca (String m){
+        marca = m;
+}
+
+    public String getMarca() {
+        return marca;
+
+    }
+    public String getColor() {
+        return color;
+
+    }
+    public String getModelo(){
+        return modelo;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+    public void setModelo(String modelo){
+        this.color = modelo;
+    }
+    public int getCantidadPuertas() {
+        return cantidadPuertas;
+
+    }
+    public void setCantidadPuertas (int cantidadPuertas) {
+        this.cantidadPuertas = cantidadPuertas;
+    }
+
+    //metodos//
+        public void contruirFordBlancoCuatropuertas(){
+            marca ="ford";
+            color = "blanco";
+            cantidadPuertas=4;
+    }
+
+}
+
+--------------------------------------
+public class Account {
+    private int nroAccount;
+    private double balance;
+//static double balance; para activa esta linea ademas e saca las barras debo quitar la linea e arriba y el metodo de la lina 19
+
+   public Account(int nro){
+       nroAccount = nro;
+   }
+
+    public int getNroAccount(){
+        return nroAccount;
+    }
+    public double getBalance() {
+        return balance;
+    }
+    public void setBalance (double b) {
+        balance = b;
+    }
+
+    public void cridit(double amount ) { balance = balance + amount; }
+    public void debit (double amount) { balance = balance - amount; }
+
+    //metodos estaticos o de clase//
+    public static void pintAccount (){
+        System.out.println("123");
+    }
+   /* public static void pintAccount (){
+        balance=123;
+    }*/
+    
+}
