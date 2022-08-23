@@ -1,0 +1,31 @@
+ public class Main {
+
+
+    public static void main(String[] args) {
+ Moto m1 = new Moto();
+        Moto m2 = new Moto(10);
+
+        m1.imprimir(5, "pepe");
+        System.out.println(m1.getRuedas());
+        }
+  }
+  ---------------------------
+  public class Moto {
+    private int ruedas;
+    public Moto(){
+        ruedas = 2;
+    }
+        public Moto(int r){
+            ruedas = r;
+        }
+    public  void imprimir (int n, String mensaje){
+        System.out.println(n+" "+mensaje);
+    }
+        public  void imprimir (String mensaje){
+            System.out.println(mensaje);
+        }
+        public int getRuedas (){
+            return ruedas;
+        }
+}
+
