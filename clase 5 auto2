@@ -1,0 +1,97 @@
+public class Main {
+
+
+    public static void main(String[] args) {
+        OOP a1 = new OOP("ford","corolla", "blanco");
+        a1.radio.encender();
+        a1.luz.encender();
+        OOP a2 = new OOP("fiat","uno", "amarillo patito");
+        a2.radio.apagar();
+        a2.luz.apagar();
+
+        Radio r1=new Radio();
+        r1.encender();
+
+
+        Luz l1 =new Luz();
+        l1.encender();
+        System.out.println("Auto 1 - radio-LUz" );
+        a1.radio.estado();
+        a1.luz.estado();
+        System.out.println("Auto 2 - radio-Luz" );
+        a2.radio.estado();
+        a2.luz.estado();
+          }
+}
+--------------------------------
+public class OOP {
+    private String color;
+    private String marca;
+    private String  modelo;
+
+
+    public Radio radio;
+    public Luz luz;
+
+
+    public OOP(String marca,String modelo,String color){
+        this.marca = marca;
+        this.modelo=modelo;
+        this.color=color;
+
+        radio=new Radio();
+        luz=new Luz();
+    }
+
+    public String getColor(){
+        return color;
+    }
+    public String getMarca(){
+        return marca;
+    }
+    public String getModelo(){
+        return modelo;
+    }
+
+}
+---------------------------
+public class Luz {
+    private boolean encendida;
+
+    //metodos
+    public void encender (){
+        encendida=true;
+    }
+    public void apagar (){
+        encendida=false;
+    }
+
+    public void estado () {
+        if (encendida) {
+            System.out.println("encendida");
+        } else {
+            System.out.println("apagada");
+        }
+    }
+}
+----------------------------------
+public class Radio {
+    //atributo
+private boolean encendida;
+
+//metodos
+    public void encender (){
+        encendida=true;
+    }
+    public void apagar (){
+        encendida=false;
+    }
+
+    public void estado () {
+        if (encendida) {
+            System.out.println("prendida");
+        } else {
+            System.out.println("apagada");
+        }
+    }
+}
