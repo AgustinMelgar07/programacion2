@@ -1,0 +1,137 @@
+public class Main {
+
+	public static void main(String[] args) {
+		OOP a1=new OOP("ford","corolla", "blanco");
+		a1.radio.encender();
+
+		a1.radio.perilla.subir();
+
+		a1.luz.apagar();
+		a1.luz.estado();
+		a1=null;
+		a1.radio.estado();
+
+		/*
+		OOP a1 = new OOP("ford","corolla", "blanco");
+		a1.radio.encender();
+		a1.luz.encender();
+		OOP a2 = new OOP("fiat","uno", "amarillo patito");
+		a2.radio.apagar();
+		a2.luz.apagar();
+
+		Radio r1=new Radio();
+		r1.encender();
+
+
+		Luz l1 =new Luz();
+		l1.encender();
+		System.out.println("Auto 1 - radio-LUz" );
+		a1.radio.estado();
+		a1.luz.estado();
+		System.out.println("Auto 2 - radio-Luz" );
+		a2.radio.estado();
+		a2.luz.estado();
+		*/
+		/*
+		Account ac1 =new Account(999);
+		//Account.balance=100;
+		ac1.pintAccount();
+		ac1.setBalance(500);
+		ac1.cridit( 1000);
+		ac1.debit(100);
+		ac1.debit(500);
+		System.out.println(ac1.getBalance());
+
+
+		Account ac2 =new Account(999);
+		System.out.println(ac2.getBalance());
+		System.out.println((ac1.getNroAccount()));
+		/*
+		int a=5;
+		int [] arr = new int [10];
+		Auto a1 =new Auto();
+		System.out.println(a1);
+
+		a1.cambiarColor("azul");
+		System.out.println(a1);
+		a1.setMarca("ford");
+		System.out.println(a1.getMarca());
+		a1.contruirFordBlancoCuatropuertas();
+		System.out.println(a1.getMarca());
+		System.out.println(a1.getCantidadPuertas());
+		System.out.println(a1.getColor());
+	*/
+	}
+}
+--------------------------------------------------------
+public class OOP {
+    private String color="blanco";
+    private String marca;
+    private String  modelo;
+    public Radio radio=new Radio();
+    public Luz luz=new Luz();
+
+
+    public OOP(String marca,String modelo,String color){
+        this.marca = marca;
+        this.modelo=modelo;
+        this.color=color;
+
+        this.radio=new Radio();
+        this.luz=new Luz();
+    }
+
+
+    public String getColor(){
+        return color;
+    }
+    public String getMarca(){
+        return marca;
+    }
+    public String getModelo(){
+        return modelo;
+    }
+
+}
+---------------------------------------------------
+public class Perilla {
+    private int volumen=0;
+    public int getVolumen(){
+        return volumen;
+    }
+    public void subir(){
+        if (volumen<99)
+        this.volumen=this.volumen+1;
+    }
+
+    public void bajar(){
+        if (volumen>1) {
+            this.volumen = this.volumen - 1;
+        }else {
+            volumen=100;
+        }
+    }
+}
+public class Radio {
+    //atributo
+    private boolean encendida;
+    public Perilla perilla=new Perilla();
+
+    //metodos
+    public void encender (){
+        encendida=true;
+    }
+    public void apagar (){
+        encendida=false;
+    }
+
+    public void estado () {
+        if (encendida) {
+            System.out.println("prendida");
+        } else {
+            System.out.println("apagada");
+        }
+    }
+
+}
+---------------------------------------------
