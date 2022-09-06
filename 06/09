@@ -1,2 +1,60 @@
 sobrescribir = polimorfismo 
+
+supe es una palabra resevada que sirve para llama la vaaible get del otro metodo si la varible iniciada de ese otro metodo es privada
 sobrecarga != polimorfismo
+
+
+----------------------------------------------------
+public class Becario extends Alumno {
+
+    public  String laboratorio;
+
+////sobreescribi
+    @Override
+    public double getCuotaMensual() {
+        return cuotaMensual/2;
+    }
+
+    //sobrecarga
+    public  void  Metodo (){
+        //hace una cosa
+        System.out.println("hola");
+    }
+    public  void  Metodo (String valor){
+        // hace otra cosa aunque tenga el mismo nombre
+        System.out.println("con string" + valor);
+
+    }
+    public  void  Metodo (int v){
+        // lo importante es el tipo e valor q se envie
+System.out.println("con int "+ v);
+
+    }
+
+    @Override
+    public void Nombecomplet() {
+        super.Nombecomplet();
+    }
+}------------------------------------------------------------
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+
+
+        Becario b1 = new Becario();
+         b1.Metodo();
+         b1.Metodo(1);
+         b1.Metodo("spe0");
+
+
+        Alumno a1= new Alumno();
+        a1.setCuotaMensual(100);
+        b1.setCuotaMensual(100);
+        System.out.println(a1.getCuotaMensual());
+        double cuota= b1.getCuotaMensual();
+         System.out.println(cuota);
+
+
+        }
+}
