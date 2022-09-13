@@ -1,0 +1,84 @@
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+        alumno a1 =new alumno();
+        a1.getNombreCompleto();
+
+        docente d1=new docente();
+        d1.getNombreCompleto();
+
+        auto au1=new auto();
+        au1.getNombreCompleto();
+
+        printEntidad(a1);
+        printEntidad(d1);
+        printEntidad(au1);
+
+        //printDieccion(d1);
+        //printDieccion(a1);
+
+    }
+
+    public  static  void  printEntidad (entidad entidad){
+        System.out.println(entidad.getNombreCompleto());//las clases que estan implementados y tienen el mismo metodo
+        //en este caso getNombeCompleto, van a poder ejecuta este metodo printEntidad
+    }
+
+    public static void  printDieccion (direccion direccion){
+        System.out.println(direccion.getdireccionCompleta());
+    }
+
+}
+-----------------------------------------------------------------
+public class  persona {
+    public String nombre;
+    public String apellido;
+}
+------------------------------------
+public class auto implements entidad{
+
+    public String  nombre;
+
+    @Override
+    public String getNombreCompleto() {
+        return nombre;
+    }
+}
+------------------------------
+public interface direccion {
+
+    String getdireccionCompleta();
+}
+------------------------------
+public interface entidad {
+String getNombreCompleto(); //cual es la diferencia entr un metodo abstr
+
+}
+-----------------------------------
+public class alumno extends persona implements entidad,direccion {
+
+
+    @Override
+    public String getNombreCompleto() {
+        return apellido +" " +nombre ;
+    }
+
+
+    @Override
+    public String getdireccionCompleta() {
+        return null;
+    }
+}
+---------------------------------------
+public class docente extends persona implements entidad {
+
+
+    public String titulo;
+
+    @Override
+    public String getNombreCompleto(){
+        return  titulo + " " + apellido + " "+ nombre;
+    }
+
+}
