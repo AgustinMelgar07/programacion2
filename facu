@@ -1,0 +1,590 @@
+public void ordenar(){
+        Collections.sort(coleccionEstudiantes);
+        for (Estudiante estudiantes : coleccionEstudiantes) {
+            System.out.println(" "+ estudiantes.toString());
+        }
+    }
+}
+_---------------------------------------------------
+
+
+
+import java.util.Collections;
+import java.util.Scanner;
+public class Main {
+
+    public static void main(String[]args){
+
+        Scanner s = new Scanner(System.in);
+
+        Facultad f = new Facultad("UTN-Free");
+
+        Carrera c1 = new Carrera("a");
+        Carrera c2 = new Carrera("z");
+        Carrera c3 = new Carrera("s");
+        Carrera c4 = new Carrera("m");
+        Carrera c5 = new Carrera("q");
+        Carrera c6 = new Carrera("l");
+        Carrera c7 = new Carrera("h");
+        Carrera c8 = new Carrera("p");
+        Carrera c9 = new Carrera("y");
+        //agregar carreras a la facultad
+        f.coleccionCarreras.add(c1);
+        f.coleccionCarreras.add(c2);
+        f.coleccionCarreras.add(c3);
+        f.coleccionCarreras.add(c4);
+        f.coleccionCarreras.add(c5);
+        f.coleccionCarreras.add(c6);
+        f.coleccionCarreras.add(c7);
+        f.coleccionCarreras.add(c8);
+        f.coleccionCarreras.add(c9);
+
+        f.mostrarCarreras();
+        System.out.println("\n");
+        f.ordenar();
+
+        System.out.println("\n-------------------------------------------------------------\n");
+        System.out.println("Las carreras antes de ser eliminadas alguna: \n");
+        f.mostrarCarreras();
+        f.Vercantidad();
+        System.out.println("\n-------------------------------------------------------------\n");
+
+
+        //eliminar carreras de la facultad
+        f.eliminarCarrera("profesorado");
+        f.eliminarCarrera("Mecanica");
+        System.out.println("\nLas carreras despues de ser eliminadas alguna: \n");
+        f.mostrarCarreras();
+        f.Vercantidad();
+
+
+        Profesor Profe1 = new Profesor("Ricardo", "Alonso", 213);
+        Profesor Profe2 = new Profesor("Federico", "Barassi", 312);
+
+
+        Materia m1 = new Materia("Laboratorio de Computacion 2",Profe1);
+        Materia m2 = new Materia("Programacion 2",Profe2);
+        Materia m3 = new Materia("Ingles 2",null);
+        Materia m4 = new Materia("Estadistica",null);
+
+
+
+        Estudiante e1 = new Estudiante("Agustin","Villaboa",123);
+        Estudiante e2 = new Estudiante("Agustin","Melgar",234);
+        Estudiante e3 = new Estudiante("Juanchi","Nissen",345);
+        Estudiante e4 = new Estudiante("Pedro","Messi",456);
+        Estudiante e5 = new Estudiante("Diego","Sanchez",567);
+
+
+
+
+        //agregar materias a una carrera
+        c1.agregarMateria(m1);
+        c1.agregarMateria(m2);
+        c1.agregarMateria(m3);
+        c1.agregarMateria(m4);
+
+
+        System.out.println("\n-------------------------------------------------------------\n");
+        System.out.println("\nLas Materias antes de ser eliminadas alguna: \n");
+
+        //muestro materias de la carreras actualizadas
+        c1.mostrarMaterias();
+        c1.Vercantidad();
+
+        System.out.println("\n-------------------------------------------------------------\n");
+
+
+        System.out.println("\nLas Materias despues de ser eliminadas alguna: \n");
+
+        c1.eliminarMateria("Ingles 2");
+        c1.mostrarMaterias();
+        c1.Vercantidad();
+
+        System.out.println("\n-------------------------------------------------------------\n");
+
+
+        if(c1.encontrarMateria("Estadistica")== true) {
+                System.out.println("¿Desea eliminar esa materia? (1=(si), cualquier otro numero (no))");
+                int respuesta = s.nextInt();
+                System.out.println("\nLas Materias despues de tomar la desicion de eliminar o no una materia: \n");
+                    if (respuesta==1) {
+                        c1.eliminarMateria("Estadistica");
+                        c1.mostrarMaterias();
+                        c1.Vercantidad();
+
+                            } else if (respuesta !=1) {
+                                c1.mostrarMaterias();
+                                c1.Vercantidad();
+                    }
+            }
+        System.out.println("\n-------------------------------------------------------------\n");
+
+        //agregar Materia
+        m1.agregarEstudiante(e1);
+        m1.agregarEstudiante(e2);
+        m1.agregarEstudiante(e3);
+        m1.agregarEstudiante(e4);
+        m1.agregarEstudiante(e5);
+
+        System.out.println("\nLos Estudiantes antes de ser eliminado alguno: \n");
+
+        m1.listarEstudiantes();
+        m1.Vercantidad();
+
+        System.out.println("\n-------------------------------------------------------------\n");
+
+        System.out.println("lista de estudiantes ordenada\n");
+        m1.ordenar();
+
+        System.out.println("\n-------------------------------------------------------------\n");
+
+        System.out.println("\nLos Estudiantes despues de ser eliminado alguno: \n");
+
+        m1.eliminarEstudiante(456);
+        m1.listarEstudiantes();
+        m1.Vercantidad();
+
+        System.out.println("\n-------------------------------------------------------------\n");
+
+
+        System.out.println("Datos del progfesor titular sin modificar: ");
+        System.out.println(m1.toString());
+        System.out.println("\n-------------------------------------------------------------\n");
+
+        System.out.println("Datos del profesor Modificado");
+        Profe1.ModificarDatos("Marcos","Soler","213");
+
+        System.out.println(m1.toString());
+        System.out.println("\n-------------------------------------------------------------\n");
+
+        System.out.println("El sueldo del "+Profe1+" , Sueldo:"+Profe1.calcularSueldo(100000,5));
+        System.out.println("\n-------------------------------------------------------------\n");
+
+        System.out.println("lista de carreras ordenada\n");
+        f.listarcontenido();
+
+        System.out.println("\n-------------------------------------------------------------\n");
+
+        System.out.println("lista de materias ordenada\n");
+        c1.listarcontenido();
+
+        System.out.println("\n-------------------------------------------------------------\n");
+
+
+        System.out.println("lista de estudiantes ordenada\n");
+        m1.listarcontenido();
+
+        System.out.println("\n-------------------------------------------------------------\n");
+
+        System.out.println("lista de estudiantes ordenada\n");
+        m1.ordenar();
+
+        System.out.println("\n-------------------------------------------------------------\n");
+
+    }
+
+}
+-----------------------------------------------------------------------------
+import java.util.Collections;
+import java.util.LinkedList;
+
+public class Facultad implements Informacion {
+
+    private String nombre;
+    public LinkedList<Carrera> coleccionCarreras;
+
+    public Facultad(String nombre) {
+        this.nombre = nombre;
+        this.coleccionCarreras = new LinkedList<Carrera>();
+    }
+
+
+    public void agregarCarreras(Carrera carrerasNuevas) {
+        coleccionCarreras.add(carrerasNuevas);
+    }
+
+
+    public void mostrarCarreras() {
+        for (Carrera carreras : coleccionCarreras) {
+            System.out.println(" "+ carreras.toString());
+        }
+    }
+    public boolean eliminarCarrera(String nombreCarrera) {
+        boolean ExistenciaDeLaCarrera = false;
+        for (Carrera carrera : coleccionCarreras) {
+            if (carrera.getNombre().equals(nombreCarrera)) {
+                coleccionCarreras.remove(carrera);
+                ExistenciaDeLaCarrera = true;
+                break;
+            }
+        }
+        return ExistenciaDeLaCarrera;
+    }
+
+    @Override
+    public void Vercantidad() {
+        System.out.println("\n cantidad de carreras en la facultad: "+coleccionCarreras.size());
+    }
+
+    @Override
+    public void listarcontenido() {
+        Collections.sort(coleccionCarreras);
+        for (Carrera carrera: coleccionCarreras) {
+            System.out.println(carrera.toString());
+        }
+    }
+
+    public void ordenar(){
+        Collections.sort(coleccionCarreras);
+        for (Carrera carreras : coleccionCarreras) {
+            System.out.println(" "+ carreras.toString());
+        }
+    }
+}
+----------------------------------------------------------------------------------------------
+import java.util.Collections;
+import java.util.LinkedList;
+
+public class Carrera implements Informacion,Comparable<Carrera> {
+    private String nombre;
+    public LinkedList<Materia> coleccionMateria;
+
+    public Carrera(String nombre) {
+        this.nombre = nombre;
+        this.coleccionMateria = new LinkedList<Materia>();
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void agregarMateria(Materia materias){
+        coleccionMateria.add(materias);
+    }
+
+    public boolean encontrarMateria(String NombreMateria) {
+        boolean ExistenciaDeLaMateria = false;
+        for (Materia materia : coleccionMateria) {
+            if (materia.getNombre().equals(NombreMateria)) {
+                ExistenciaDeLaMateria = true;
+                break;
+            }
+        }
+        return ExistenciaDeLaMateria;
+    }
+
+    public boolean eliminarMateria(String NombreMateria) {
+        boolean ExistenciaDeLaMateria = false;
+        for (Materia materia : coleccionMateria) {
+            if (materia.getNombre().equals(NombreMateria)) {
+                coleccionMateria.remove(materia);
+                ExistenciaDeLaMateria = true;
+                break;
+            }
+        }
+        return ExistenciaDeLaMateria;
+    }
+    @Override
+    public String toString() {
+        return "Carrera{" +
+                "nombre='" + nombre + '\'' +
+                '}';
+    }
+
+    public void mostrarMaterias() {
+        for (Materia materia : coleccionMateria) {
+            System.out.println(" "+ materia.toString());
+        }
+    }
+
+    @Override
+    public void Vercantidad() {
+        System.out.println("\n cantidad de materias en la carrera: "+coleccionMateria.size());
+    }
+
+    @Override
+    public void listarcontenido() {
+        Collections.sort(coleccionMateria);
+        for (Materia materia: coleccionMateria) {
+            System.out.println(materia.toString());
+        }
+    }
+
+    @Override
+    public int compareTo(Carrera o) {
+        int salida;
+        if (o.getNombre().compareToIgnoreCase(this.nombre)==0) {
+            if (o.getNombre().compareToIgnoreCase(this.nombre) > 0) {
+                salida = -1;
+            } else if (o.getNombre().compareToIgnoreCase(this.nombre) < 0) {
+                salida = 1;
+            } else {
+                salida = 0;
+            }
+        }else if (o.getNombre().compareToIgnoreCase(this.nombre)>0){
+            salida= -1;
+        }else {
+            salida = 1;
+        }
+        return salida;
+    }
+
+    public void ordenar(Carrera o){
+
+    }
+}
+-------------------------------------------------------------------------
+import java.util.Collection;
+import java.util.Collections;
+import java.util.LinkedList;
+
+
+public class Materia implements Comparable<Materia>, Informacion {
+    private String nombre;
+    public Profesor titular;
+    public LinkedList<Estudiante> coleccionEstudiantes;
+
+    public Materia(String nombremateria, Profesor titular){
+        this.nombre = nombremateria;
+        this.titular = titular;
+        this.coleccionEstudiantes = new LinkedList<Estudiante>();
+    }
+
+
+    public void eliminarEstudiante(int legajo){
+        boolean ExistenciaDelAlumno = false;
+        for(Estudiante estudiante: coleccionEstudiantes){
+            if(estudiante.getLegajo()==legajo){
+                coleccionEstudiantes.remove(estudiante);
+                ExistenciaDelAlumno = true;
+                break;
+            }
+        }
+    }
+
+    public void agregarEstudiante(Estudiante estudianteNuevo){
+        this.coleccionEstudiantes.add(estudianteNuevo);
+    }
+
+    @Override
+    public String toString() {
+        return "Materia{" +
+                "nombre='" + nombre + '\'' +
+                ", titular=" + titular +
+
+                '}';
+    }
+
+    public void listarEstudiantes(){
+        for (Estudiante estudiante: coleccionEstudiantes) {
+            System.out.println(estudiante.toString());
+        }
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    @Override
+    public void Vercantidad() {
+        System.out.println("\n cantidad de estudiantes en la materia: "+coleccionEstudiantes.size());
+    }
+
+    @Override
+    public void listarcontenido() {
+        Collections.sort(coleccionEstudiantes);
+        for (Estudiante estudiante: coleccionEstudiantes) {
+            System.out.println(estudiante.toString());
+        }
+    }
+
+    @Override
+    public int compareTo(Materia o) {
+        int salida;
+        if (o.getNombre().compareToIgnoreCase(this.nombre)==0) {
+            if (o.getNombre().compareToIgnoreCase(this.nombre) > 0) {
+                salida = -1;
+            } else if (o.getNombre().compareToIgnoreCase(this.nombre) < 0) {
+                salida = 1;
+            } else {
+                salida = 0;
+            }
+        }else if (o.getNombre().compareToIgnoreCase(this.nombre)>0){
+            salida= -1;
+        }else {
+            salida = 1;
+        }
+        return salida;
+    }
+
+    public void ordenar(){
+        Collections.sort(coleccionEstudiantes);
+        for (Estudiante estudiantes : coleccionEstudiantes) {
+            System.out.println(" "+ estudiantes.toString());
+        }
+    }
+}
+---------------------------------------------------------------------------
+import static java.lang.Integer.parseInt;
+public class Estudiante extends Persona  implements Comparable<Estudiante>{
+
+
+    public Estudiante(String nombre, String apellido, int legajo) {
+        super(nombre, apellido, legajo);
+    }
+
+    @Override
+    public String getNombre() {
+        return super.getNombre();
+    }
+
+    @Override
+    public void setNombre(String nombre) {
+        super.setNombre(nombre);
+    }
+
+    @Override
+    public String getApellido() {
+        return super.getApellido();
+    }
+
+    @Override
+    public void setApellido(String apellido) {
+        super.setApellido(apellido);
+    }
+
+    @Override
+    public int getLegajo() {
+        return super.getLegajo();
+    }
+
+    @Override
+    public void setLegajo(int legajo) {
+        super.setLegajo(legajo);
+    }
+
+    @Override
+    public void ModificarDatos(String nombre, String apellido, String nroLeg) {
+        super.setNombre(nombre);
+        super.setApellido(apellido);
+        super.setLegajo(Integer.parseInt(String.valueOf(parseInt(nroLeg))));
+    }
+
+
+
+    @Override
+    public String toString() {
+        return  "Persona{" +
+                "nombre='" +  nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", legajo=" + legajo +
+                '}';
+    };
+
+    @Override
+    public int compareTo(Estudiante o) {
+        int salida;
+        if (o.getApellido().compareToIgnoreCase(this.apellido)==0) {
+            if (o.getNombre().compareToIgnoreCase(this.nombre) > 0) {
+                salida = -1;
+            } else if (o.getNombre().compareToIgnoreCase(this.nombre) < 0) {
+                salida = 1;
+            } else {
+                salida = 0;
+            }
+        }else if (o.getApellido().compareToIgnoreCase(this.apellido)>0){
+            salida= -1;
+        }else {
+            salida = 1;
+        }
+            return salida;
+    }
+}
+---------------------------------------------------------------------------------------
+public interface Informacion {
+    public void Vercantidad();
+    public void listarcontenido();
+}
+------------------------------------------------------------------------
+public abstract class Persona {
+
+    public String nombre;
+    public  String apellido;
+    public  int legajo;
+
+    public Persona(String nombre, String apellido, int legajo) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.legajo = legajo;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public int getLegajo() {
+        return legajo;
+    }
+
+    public void setLegajo(int legajo) {
+        this.legajo = legajo;
+    }
+
+    @Override
+    public String toString() {
+        return "Persona{" +
+                "nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", legajo=" + legajo +
+                '}';
+    }
+
+    abstract public  void ModificarDatos(String nombre, String apellido, String legajo);
+}
+---------------------------------------------------------------------
+import static java.lang.Integer.parseInt;
+
+public class Profesor extends Persona {
+    private double basico;
+    private int antiguedad;
+
+    public Profesor(String nombre, String apellido, int legajo)
+    {
+        super(nombre, apellido, legajo);
+    }
+
+    public double calcularSueldo(double sueldo,int antiguedad){
+        return sueldo=sueldo+(sueldo*(antiguedad*0.10));
+
+    }
+
+    @Override
+    public String toString() {
+        return "Profesor: " +super.toString();
+    }
+
+    @Override
+    public void ModificarDatos(String nombre, String apellido, String legajo) {
+        super.setNombre(nombre);
+        super.setApellido(apellido);
+        super.setLegajo(Integer.parseInt(String.valueOf(parseInt(legajo))));
+    }
+}
+
